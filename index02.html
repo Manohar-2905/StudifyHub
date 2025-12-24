@@ -1,203 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="icon" href="./logo.png">
   <title>Language Translator</title>
-  <style>
-    
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    }
-
-    body {
-        display: flex;
-        height: 100vh;
-        background-color: white;
-        color: #333;
-        flex-direction: column;
-        align-items: center;
-        padding: 20px;
-    }
-
-    .container {
-        width: 100%;
-        max-width: 800px;
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-    }
-
-    .header {
-        display: flex;
-        justify-content: center;
-        margin-bottom: 20px;
-    }
-
-    .header h1 {
-        font-size: 24px;
-        color: #333;
-    }
-
-    .text-box-container {
-        position: relative;
-        margin-bottom: 20px;
-    }
-
-    .text-area {
-        width: 100%;
-        min-height: 150px;
-        padding: 15px;
-        border-radius: 5px;
-        border: 1px solid black;
-        background-color: white;
-        color: black;
-        font-size: 16px;
-        resize: none;
-        outline: none;
-    }
-
-    .controls {
-        position: absolute;
-        bottom: 10px;
-        right: 10px;
-        display: flex;
-        gap: 10px;
-    }
-
-    .control-button {
-        background: none;
-        border: none;
-        cursor: pointer;
-        color: #555;
-        width: 30px;
-        height: 30px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border-radius: 4px;
-    }
-
-    .control-button:hover {
-        background-color: #f0f0f0;
-        color: #333;
-    }
-
-    .language-controls {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 20px;
-        margin: 10px 0;
-    }
-
-    .language-dropdown {
-        position: relative;
-    }
-
-    .language-select {
-        padding: 8px 30px 8px 15px;
-        border-radius: 5px;
-        background-color: white;
-        color: black;
-        border: 1px solid black;
-        cursor: pointer;
-        appearance: none;
-        -webkit-appearance: none;
-        -moz-appearance: none;
-        min-width: 150px;
-    }
-
-    .language-select:focus {
-        outline: none;
-        border-color: #6a1b9a;
-    }
-
-    .dropdown-arrow {
-        position: absolute;
-        right: 10px;
-        top: 50%;
-        transform: translateY(-50%);
-        pointer-events: none;
-        color: #555;
-    }
-
-    .switch-button {
-        background-color: #6a1b9a;
-        border: 1px solid #5a0d8b;
-        border-radius: 5px;
-        width: 40px;
-        height: 40px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        cursor: pointer;
-        color: white;
-    }
-
-    .switch-button:hover {
-        background-color: #7c20b5;
-    }
-
-    .translate-button {
-        background-color: #6a1b9a;
-        color: white;
-        border: none;
-        border-radius: 5px;
-        padding: 10px 20px;
-        font-size: 16px;
-        cursor: pointer;
-        margin: 10px 0;
-        width: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 8px;
-    }
-
-    .translate-button:hover {
-        background-color: #7c20b5;
-    }
-
-    .copy-button {
-        position: absolute;
-        right: 45px;
-        bottom: 10px;
-        background: none;
-        border: none;
-        color: #555;
-        cursor: pointer;
-    }
-
-    .copy-button:hover {
-        color: #333;
-    }
-
-    .label {
-        font-size: 14px;
-        color: #333;
-        margin-bottom: 5px;
-    }
-
-    .speaker-button {
-        position: absolute;
-        right: 10px;
-        bottom: 10px;
-        background: none;
-        border: none;
-        color: #555;
-        cursor: pointer;
-    }
-
-    .speaker-button:hover {
-        color: #333;
-    }
-  </style>
+  <link rel="stylesheet" href="index02.css">
 </head>
+
 <body>
   <div class="container">
     <div class="header">
@@ -211,9 +22,12 @@
         <button class="control-button speaker-button" id="input-speak">
           <!-- Speaker Icon -->
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-            <path d="M11 5L6 9H2V15H6L11 19V5Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            <path d="M15.54 8.46C16.477 9.398 17.004 10.669 17.004 11.995C17.004 13.321 16.477 14.592 15.54 15.53" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            <path d="M19.07 5.93C20.945 7.805 21.998 10.345 21.998 13C21.998 15.655 20.945 18.195 19.07 20.07" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M11 5L6 9H2V15H6L11 19V5Z" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round" />
+            <path d="M15.54 8.46C16.477 9.398 17.004 10.669 17.004 11.995C17.004 13.321 16.477 14.592 15.54 15.53"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+            <path d="M19.07 5.93C20.945 7.805 21.998 10.345 21.998 13C21.998 15.655 20.945 18.195 19.07 20.07"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
           </svg>
         </button>
       </div>
@@ -241,7 +55,8 @@
       <button class="switch-button" id="switch-languages">
         <!-- Switch Icon -->
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-          <path d="M7 16L3 12M3 12L7 8M3 12H21M17 8L21 12M21 12L17 16" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M7 16L3 12M3 12L7 8M3 12H21M17 8L21 12M21 12L17 16" stroke="white" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round" />
         </svg>
       </button>
 
@@ -267,7 +82,8 @@
     <button class="translate-button" id="translate-button">
       <!-- Translate Icon -->
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-        <path d="M5 8L10 13L5 18M14 8H19M14 12H19M14 16H19" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M5 8L10 13L5 18M14 8H19M14 12H19M14 16H19" stroke="white" stroke-width="2" stroke-linecap="round"
+          stroke-linejoin="round" />
       </svg>
       Translate
     </button>
@@ -279,98 +95,27 @@
         <button class="control-button copy-button" id="copy-button">
           <!-- Copy Icon -->
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-            <path d="M8 7V15C8 15.53 8.211 16.039 8.586 16.414C8.961 16.789 9.47 17 10 17H18C18.53 17 19.039 16.789 19.414 16.414C19.789 16.039 20 15.53 20 15V7C20 6.47 19.789 5.961 19.414 5.586C19.039 5.211 18.53 5 18 5H10C9.47 5 8.961 5.211 8.586 5.586C8.211 5.961 8 6.47 8 7Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path
+              d="M8 7V15C8 15.53 8.211 16.039 8.586 16.414C8.961 16.789 9.47 17 10 17H18C18.53 17 19.039 16.789 19.414 16.414C19.789 16.039 20 15.53 20 15V7C20 6.47 19.789 5.961 19.414 5.586C19.039 5.211 18.53 5 18 5H10C9.47 5 8.961 5.211 8.586 5.586C8.211 5.961 8 6.47 8 7Z"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
           </svg>
         </button>
         <button class="control-button speaker-button" id="output-speak">
           <!-- Speaker Icon -->
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-            <path d="M11 5L6 9H2V15H6L11 19V5Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            <path d="M15.54 8.46C16.477 9.398 17.004 10.669 17.004 11.995C17.004 13.321 16.477 14.592 15.54 15.53" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            <path d="M19.07 5.93C20.945 7.805 21.998 10.345 21.998 13C21.998 15.655 20.945 18.195 19.07 20.07" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M11 5L6 9H2V15H6L11 19V5Z" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round" />
+            <path d="M15.54 8.46C16.477 9.398 17.004 10.669 17.004 11.995C17.004 13.321 16.477 14.592 15.54 15.53"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+            <path d="M19.07 5.93C20.945 7.805 21.998 10.345 21.998 13C21.998 15.655 20.945 18.195 19.07 20.07"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
           </svg>
         </button>
       </div>
     </div>
   </div>
 
-  <script>
-    const GROQ_API_KEY = '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';
-    const GROQ_API_URL = 'https://api.groq.com/openai/v1/chat/completions';
-
-    async function translateText() {
-      const text = document.getElementById('input-text').value.trim();
-      if (!text) return;
-
-      const fromLang = document.getElementById('from-language').value;
-      const toLang = document.getElementById('to-language').value;
-
-      try {
-        const response = await fetch(GROQ_API_URL, {
-          method: 'POST',
-          headers: {
-            'Authorization': `Bearer ${GROQ_API_KEY}`,
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify({
-            model: 'llama3-70b-8192',
-            messages: [
-              { role: 'system', content: `You are a translator that translates from ${fromLang} to ${toLang}.` },
-              { role: 'user', content: `Translate the following text from ${fromLang} to ${toLang}: ${text}` }
-            ],
-            temperature: 0.2
-          })
-        });
-
-        const data = await response.json();
-        
-        if (data?.choices && data.choices[0]?.message?.content) {
-          const result = data.choices[0].message.content.trim();
-          document.getElementById('output-text').value = result || 'Translation failed.';
-        } else {
-          document.getElementById('output-text').value = 'Translation failed. Please try again.';
-        }
-      } catch (err) {
-        console.error(err);
-        document.getElementById('output-text').value = 'Error translating text. Please try again.';
-      }
-    }
-
-    function switchLanguages() {
-      const fromLang = document.getElementById('from-language');
-      const toLang = document.getElementById('to-language');
-      [fromLang.value, toLang.value] = [toLang.value, fromLang.value];
-    }
-
-    function speak(text, lang = 'auto') {
-      const utterance = new SpeechSynthesisUtterance(text);
-      utterance.lang = lang;
-      speechSynthesis.speak(utterance);
-    }
-
-    document.getElementById('translate-button').addEventListener('click', translateText);
-    document.getElementById('switch-languages').addEventListener('click', switchLanguages);
-
-    document.getElementById('input-speak').addEventListener('click', () => {
-      const text = document.getElementById('input-text').value;
-      if (text) speak(text);
-    });
-
-    document.getElementById('output-speak').addEventListener('click', () => {
-      const text = document.getElementById('output-text').value;
-      if (text) speak(text);
-    });
-
-    document.getElementById('copy-button').addEventListener('click', () => {
-      const text = document.getElementById('output-text').value;
-      if (text) {
-        navigator.clipboard.writeText(text).then(() => {
-          console.log('Text copied to clipboard');
-        }).catch(err => {
-          console.error('Error copying text: ', err);
-        });
-      }
-    });
-  </script>
+  <script src="index02.js"></script>
 </body>
+
 </html>
