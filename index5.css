@@ -1,15 +1,15 @@
 :root {
-    --bg-primary: #ffffff;
-    --bg-secondary: #f8f8f8;
-    --bg-tertiary: #f0f0f0;
-    --color-blue: #663399;
-    --color-purple: #663399;
-    --color-grey: #999999;
-    --text-primary: #000000;
-    --text-secondary: #333333;
-    --border: #000000;
-    --accent: #663399;
-    --hover: #4B0082;
+    --bg-primary: #0a0e17;
+    --bg-secondary: #151c2f;
+    --bg-tertiary: #1a1a2e;
+    --color-blue: #00c9ff;
+    --color-purple: #00c9ff;
+    --color-grey: #9ca3af;
+    --text-primary: #ffffff;
+    --text-secondary: #e0e0e0;
+    --border: #2d3748;
+    --accent: #00c9ff;
+    --hover: #00a3cc;
 }
 
 * {
@@ -134,7 +134,7 @@ body {
 #editor:focus {
     outline: none;
     border-color: var(--color-purple);
-    box-shadow: 0 0 0 2px rgba(102, 51, 153, 0.2);
+    box-shadow: 0 0 0 2px rgba(0, 201, 255, 0.25);
 }
 
 button {
@@ -145,7 +145,7 @@ button {
 #runBtn {
     background-color: var(--color-purple);
     color: white;
-    box-shadow: 0 4px 12px rgba(102, 51, 153, 0.3);
+    box-shadow: 0 4px 12px rgba(0, 201, 255, 0.3);
     align-self: flex-start;
     border: 2px solid var(--border);
     border-radius: 8px;
@@ -155,7 +155,7 @@ button {
 #runBtn:hover {
     background-color: var(--hover);
     transform: translateY(-2px);
-    box-shadow: 0 6px 16px rgba(102, 51, 153, 0.4);
+    box-shadow: 0 6px 16px rgba(0, 201, 255, 0.4);
 }
 
 #runBtn:active {
@@ -182,14 +182,14 @@ button {
 #language:focus {
     outline: none;
     border-color: var(--color-purple);
-    box-shadow: 0 0 0 2px rgba(102, 51, 153, 0.2);
+    box-shadow: 0 0 0 2px rgba(0, 201, 255, 0.25);
 }
 
 #output {
-    color: var(--text-primary);
+    color: #000000;
     font-family: 'Courier New', monospace;
     padding: 15px;
-    background-color: var(--bg-primary);
+    background-color: #ffffff;
     border-radius: 8px;
     border: 2px solid var(--border);
     min-height: 400px;
@@ -241,7 +241,7 @@ button {
     border-radius: 8px;
     cursor: pointer;
     z-index: 1001;
-    box-shadow: 0 4px 12px rgba(102, 51, 153, 0.3);
+    box-shadow: 0 4px 12px rgba(0, 201, 255, 0.3);
     transition: background-color 0.3s ease;
 }
 

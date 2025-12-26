@@ -6,8 +6,8 @@ const historyList = document.getElementById('historyList');
 const sidebar = document.getElementById('sidebar');
 const toggleHistoryBtn = document.getElementById('toggleHistoryBtn');
 
-const GROQ_API_KEY = "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";
-const MODEL = "meta-llama/llama-4-scout-17b-16e-instruct";
+const GROQ_API_KEY = "YOUR_GLOQ_API_KEY_HERE"; // REPLACE THIS WITH YOUR ACTUAL API KEY
+const MODEL = "llama-3.3-70b-versatile";
 
 let chatHistory = [];
 let currentChatId = null;
@@ -102,6 +102,12 @@ async function getAIResponse(userInput) {
             })
         });
 
+        if (!response.ok) {
+            const errorText = await response.text();
+            console.error("Groq API Error:", response.status, response.statusText, errorText);
+            throw new Error(`API Error ${response.status}: ${errorText}`);
+        }
+
         const data = await response.json();
         const aiText = data.choices[0].message.content.trim();
         chatContainer.removeChild(loadingMsg);
@@ -117,8 +123,10 @@ async function getAIResponse(userInput) {
         loadHistoryMenu();
         saveToLocalStorage();
     } catch (error) {
-        chatContainer.removeChild(loadingMsg);
-        appendMessage('ai', "❌ Error getting response. Please try again.");
+        if (chatContainer.contains(loadingMsg)) {
+            chatContainer.removeChild(loadingMsg);
+        }
+        appendMessage('ai', `❌ Error: ${error.message}. Check console for details.`);
         console.error("API Error:", error);
     }
 }

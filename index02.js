@@ -1,4 +1,4 @@
-const GROQ_API_KEY = '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';
+const GROQ_API_KEY = 'YOUR_GLOQ_API_KEY_HERE'; // REPLACE THIS WITH YOUR ACTUAL API KEY
 const GROQ_API_URL = 'https://api.groq.com/openai/v1/chat/completions';
 
 async function translateText() {
@@ -16,7 +16,7 @@ async function translateText() {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-                model: 'llama3-70b-8192',
+                model: 'llama-3.3-70b-versatile',
                 messages: [
                     { role: 'system', content: `You are a translator that translates from ${fromLang} to ${toLang}.` },
                     { role: 'user', content: `Translate the following text from ${fromLang} to ${toLang}: ${text}` }
@@ -25,7 +25,15 @@ async function translateText() {
             })
         });
 
+        if (!response.ok) {
+            const errorText = await response.text();
+            console.error("Groq API Error:", response.status, response.statusText, errorText);
+            document.getElementById('output-text').value = `Error ${response.status}: ${errorText || response.statusText}`;
+            return;
+        }
+
         const data = await response.json();
+        console.log("Groq API Response:", data);
 
         if (data?.choices && data.choices[0]?.message?.content) {
             const result = data.choices[0].message.content.trim();
@@ -34,8 +42,8 @@ async function translateText() {
             document.getElementById('output-text').value = 'Translation failed. Please try again.';
         }
     } catch (err) {
-        console.error(err);
-        document.getElementById('output-text').value = 'Error translating text. Please try again.';
+        console.error("Fetch Error:", err);
+        document.getElementById('output-text').value = `Error: ${err.message}. Check console.`;
     }
 }
 

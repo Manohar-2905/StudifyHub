@@ -102,7 +102,7 @@ async function runCode() {
 
     try {
         const apiUrl = "https://api.groq.com/openai/v1/chat/completions";
-        const apiKey = "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"; // Replace with your actual API key
+        const apiKey = "YOUR_GLOQ_API_KEY_HERE"; // Replace with your actual API key
 
         const response = await fetch(apiUrl, {
             method: "POST",
@@ -111,7 +111,7 @@ async function runCode() {
                 "Authorization": `Bearer ${apiKey}`
             },
             body: JSON.stringify({
-                model: "llama3-8b-8192",
+                model: "llama-3.3-70b-versatile",
                 messages: [{
                     role: "user",
                     content: `Please execute the following ${languageMap[language]} code. Simulate any input or stdin reading using the provided input if needed, and return only the output (no explanation).\n\nCode:\n${code}\n\nInput:\n${userInput}`
@@ -121,16 +121,19 @@ async function runCode() {
 
         if (!response.ok) {
             const errorText = await response.text();
-            outputEl.innerText = `Error: ${errorText}`;
+            console.error("Groq API Error:", response.status, response.statusText, errorText);
+            outputEl.innerText = `Error ${response.status}: ${errorText || response.statusText}`;
             return;
         }
 
         const data = await response.json();
+        console.log("Groq API Response:", data);
         outputEl.innerText = data.choices?.[0]?.message?.content || "No output returned.";
 
         saveToHistory(code, language);
     } catch (err) {
-        outputEl.innerText = `Request failed: ${err.message}`;
+        console.error("Fetch Error:", err);
+        outputEl.innerText = `Request failed: ${err.message}. Check console for details.`;
     } finally {
         runBtn.innerText = "Run";
         runBtn.disabled = false;

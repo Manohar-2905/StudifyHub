@@ -4,13 +4,15 @@ body {
     display: flex;
     overflow: hidden;
     font-family: 'Segoe UI', sans-serif;
+    background-color: #0a0e17;
+    color: #fff;
 }
 
 .sidebar {
     width: 260px;
-    background-color: #ffffff;
+    background-color: #151c2f;
     padding: 1rem;
-    border-right: 1px solid #ddd;
+    border-right: 1px solid #2d3748;
     display: flex;
     flex-direction: column;
     transition: transform 0.3s ease;
@@ -25,7 +27,7 @@ body {
     position: absolute;
     top: 1rem;
     left: 1rem;
-    background: #663399;
+    background: #7b2cbf;
     border: none;
     border-radius: 12px;
     width: 40px;
@@ -52,17 +54,17 @@ body {
 }
 
 .history button {
-    background-color: #f9f9f9;
+    background-color: #1a1a2e;
     border: none;
     padding: 0.6rem 1rem;
     border-radius: 8px;
     text-align: left;
     font-size: 14px;
-    color: #333;
+    color: #e0e0e0;
 }
 
 .history button:hover {
-    background-color: #e0e0e0;
+    background-color: #2d3748;
 }
 
 .main {
@@ -92,7 +94,9 @@ body {
     resize: none;
     padding: 0.75rem;
     border-radius: 10px;
-    border: 1px solid #ccc;
+    border: 1px solid #2d3748;
+    background-color: #151c2f;
+    color: #fff;
 }
 
 .input-area button {
@@ -133,7 +137,8 @@ body {
 }
 
 .message-content {
-    background: white;
+    background: #151c2f;
+    color: #e0e0e0;
     padding: 0.75rem 1rem;
     border-radius: 10px;
     max-width: 75%;
@@ -143,7 +148,7 @@ body {
 
 #sendBtn,
 #newChatBtn {
-    background-color: #663399;
+    background-color: #7b2cbf;
     color: white;
 }
 
